@@ -14,6 +14,9 @@ configure_zsh() {
       fi
     done
     cp "${DIR}/.zshrc" ~/.zshrc
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    wget -O /home/fluit/.zshrc "https://raw.githubusercontent.com/stefanfluit/default_files/master/oh_my_zsh/.zshrc-pnd"
+    chsh -s $(which zsh) fluit
 }
 
 configure_p10k() {
@@ -27,6 +30,8 @@ configure_p10k() {
         wget -P /home/$(whoami)/.fonts "${font}"
     done
     /usr/bin/fc-cache
+    git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    cp "${DIR}/.p10k.zsh" ~/.p10k.zsh
 }
 
 configure_tilix() {
@@ -41,16 +46,9 @@ configure_tilix() {
     dconf load /com/gexperts/Tilix/ < "${DIR}/tilix.dconf"
 }
 
-configure_ohmyzsh() {
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  wget -O /home/fluit/.zshrc "https://raw.githubusercontent.com/stefanfluit/default_files/master/oh_my_zsh/.zshrc-pnd"
-  chsh -s $(which zsh) fluit
-}
-
 main () {
     configure_tilix "tilix" && \
     configure_zsh "zsh" && \
-    configure_ohmyzsh && \
     configure_p10k
 }
 
