@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -o errexit      #Exit on uncaught errors
-set -x 
+
 declare USER_="fluit"
 declare BACKUP_DIR="/home/fluit/Documents/scripts/default_files/terminal_files_fluit"
 
