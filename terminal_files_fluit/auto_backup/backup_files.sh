@@ -6,7 +6,7 @@ declare USER_="fluit"
 declare BACKUP_DIR="/home/fluit/Documents/scripts/default_files/terminal_files_fluit"
 
 declare DATE_STAMP
-DATE_STAMP="date +%m-%d-%Y"
+DATE_STAMP="$(date +%m-%d-%Y)"
 
 declare -a base_files=(
     "/home/${USER_}/.zshrc"
@@ -24,7 +24,7 @@ cd "${BACKUP_DIR}"
 git add "${BACKUP_DIR}/.zshrc" && \
 git commit -m "Backup of ${DATE_STAMP} for .zshrc."
 
-git add "${BACKUP_DIR}/.tilix.dconf" && \
+git add "${BACKUP_DIR}/tilix.dconf" && \
 git commit -m "Backup of ${DATE_STAMP} for tilix conf."
 
 git add "${BACKUP_DIR}/.p10k.zsh" && \
