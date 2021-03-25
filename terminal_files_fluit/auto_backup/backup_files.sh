@@ -16,7 +16,7 @@ declare -a base_files=(
     "/home/${USER_}/.p10k.zsh"
 )
 
-dconf dump /com/gexperts/Tilix/ > "${BACKUP_DIR}/_backup/tilix.dconf"
+dconf dump /com/gexperts/Tilix/ > "${BACKUP_DIR}/tilix.dconf"
 
 for file in "${base_files[@]}"; do
     cp "${file}" "${BACKUP_DIR}"
