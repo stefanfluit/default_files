@@ -11,7 +11,7 @@ sudo cp "${DIR}/systemd/backup-files.timer" "/etc/systemd/system/backup-files.ti
 sudo systemctl daemon-reload
 sudo systemctl enable backup-files.timer --now
 
-mkdir /var/lib/scripts
+sudo mkdir /var/lib/scripts
 sudo cp "${DIR}/backup_files.sh" "/var/lib/scripts/backup_files.sh"
 sudo chmod +x "/var/lib/scripts/backup_files.sh"
 sudo chown -R ${USER_}:${USER_} "/var/lib/scripts"
