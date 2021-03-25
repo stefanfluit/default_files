@@ -5,6 +5,9 @@ set -o errexit      #Exit on uncaught errors
 declare USER_="fluit"
 declare BACKUP_DIR="/home/fluit/Documents/scripts/default_files/terminal_files_fluit"
 
+# Define how many daily backups you want to keep. 
+declare retention_days="7"
+
 declare DATE_STAMP
 DATE_STAMP="$(date +%m-%d-%Y)"
 
@@ -32,3 +35,6 @@ git add "${BACKUP_DIR}/${DATE_STAMP}_backup/tilix.dconf" && git commit -m "Backu
 git add "${BACKUP_DIR}/${DATE_STAMP}_backup/.p10k.zsh" && git commit -m "Backup of ${DATE_STAMP} for p10k config."
 
 cd "${BACKUP_DIR}" && GIT_SSH_COMMAND='ssh -i  /home/fluit/.ssh/id_ed25519_git.pub' git push
+
+# Removing the old files, except the value of retention_days. 
+#find "${BACKUP_DIR}" -type f -printf '%T@\t%p\n' | sort -t $'\t' -g | head -n -"${retention_days}" | cut -d $'\t' -f 2- | xargs rm -rf
