@@ -41,9 +41,16 @@ configure_tilix() {
     dconf load /com/gexperts/Tilix/ < "${DIR}/tilix.dconf"
 }
 
+configure_ohmyzsh() {
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  wget -O /home/fluit/.zshrc "https://raw.githubusercontent.com/stefanfluit/default_files/master/oh_my_zsh/.zshrc-pnd"
+  chsh -s $(which zsh) fluit
+}
+
 main () {
     configure_tilix "tilix" && \
     configure_zsh "zsh" && \
+    configure_ohmyzsh && \
     configure_p10k
 }
 
