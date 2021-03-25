@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup ZSH and P10k config files.
+
+[Timer]
+OnCalendar=*-*-* 14:00:00
+Unit=backup-files.service
+Persistent=false
+
+[Install]
+WantedBy=timers.target

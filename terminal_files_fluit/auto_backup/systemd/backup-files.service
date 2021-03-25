@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup ZSH and P10k config files.
+After=network.target
+
+[Service]
+User=fluit
+Group=fluit
+Type=oneshot
+ExecStart=/bin/bash /var/lib/scripts/backup_files.sh
