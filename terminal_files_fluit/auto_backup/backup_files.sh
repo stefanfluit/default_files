@@ -12,7 +12,7 @@ declare DATE_STAMP
 DATE_STAMP="$(date +%m-%d-%Y)"
 
 declare -a base_files=(
-    "/home/${USER_}/.zshrc.${DATE_STAMP}"
+    "/home/${USER_}/.zshrc"
     "/home/${USER_}/.p10k.zsh"
 )
 
