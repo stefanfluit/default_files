@@ -3,7 +3,9 @@
 set -o errexit      #Exit on uncaught errors
 
 declare USER_="fluit"
-declare BACKUP_DIR="/home/fluit/Documents/scripts/default_files/terminal_files_fluit"
+declare BACKUP_DIR="/home/fluit/Documents/scripts/default_files/terminal_files_fluit/backup_${DATE_STAMP}"
+
+mkdir "${BACKUP_DIR}"
 
 # Define how many daily backups you want to keep. 
 declare retention_days="7"
