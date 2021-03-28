@@ -33,4 +33,4 @@ git add "${BACKUP_DIR}/tilix.dconf" && git commit -m "Backup of ${DATE_STAMP} fo
 
 git add "${BACKUP_DIR}/.p10k.zsh" && git commit -m "Backup of ${DATE_STAMP} for p10k config."
 
-cd "${BACKUP_DIR}" && GIT_SSH_COMMAND='ssh -i  /home/fluit/.ssh/id_ed25519_git.pub' git push
+cd "${BACKUP_DIR}" && GIT_SSH_COMMAND='ssh -i  /home/fluit/.ssh/id_ed25519_git' git push
